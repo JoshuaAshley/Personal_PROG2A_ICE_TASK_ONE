@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ST10060590_Joshua_Ashley_ICE_TASK_ONE/1.0.0": {
+        "runtime": {
+          "ST10060590_Joshua_Ashley_ICE_TASK_ONE.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ST10060590_Joshua_Ashley_ICE_TASK_ONE/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
