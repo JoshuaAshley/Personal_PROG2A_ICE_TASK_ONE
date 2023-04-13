@@ -75,9 +75,9 @@
         private readonly int itemCount;
 
 
-        public ShoppingCart(int capacity)
+        public ShoppingCart()
         {
-            //testing to see how changes work
+
         }
 
         public void AddProduct(Product product, int currentItemCount)
