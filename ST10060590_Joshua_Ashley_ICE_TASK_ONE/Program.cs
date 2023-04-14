@@ -8,7 +8,7 @@ namespace Program
         {
             Console.WriteLine("Welcome to the store. Please specify the maximum capacity of the shopping cart.");
             int capactiy = int.Parse(Console.ReadLine());
-            ShoppingCart shop = new ShoppingCart();
+            ShoppingCart shop = new ShoppingCart(capactiy);
         }
     }
 
