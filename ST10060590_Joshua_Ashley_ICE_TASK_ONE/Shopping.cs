@@ -1,6 +1,4 @@
-﻿using System.Collections;
-
-namespace ShoppingCartApp
+﻿namespace ShoppingCartApp
 {
     public enum ProductCategory
     {
@@ -88,7 +86,29 @@ namespace ShoppingCartApp
             itemCount = 0;
 
             PopulateProduct();
-            DisplayDetails();
+            Menu();
+        }
+
+        public void Menu()
+        {
+            int option = 0;
+            Console.WriteLine("MENU:");
+            while (option != 3)
+            {
+                Console.WriteLine("1. View Products\n" +
+                "2. Delete Product/s\n" +
+                "3. Exit");
+                option = int.Parse(Console.ReadLine());
+                if (option == 1)
+                {
+                    DisplayDetails();
+                }
+                else if (option == 2)
+                {
+                    RemoveProduct(SearchProduct());
+                }
+            }
+
         }
 
         public void PopulateProduct()
@@ -97,16 +117,6 @@ namespace ShoppingCartApp
             string name;
             double price;
             ProductCategory category;
-
-            //clothing product variables
-            string size;
-            string colour;
-
-            //electronic product variables
-            string brand;
-            string model;
-
-            ArrayList tempArr = new ArrayList();
 
             Console.WriteLine("Please add the products.");
             while (itemCount < products.Length)
@@ -127,6 +137,7 @@ namespace ShoppingCartApp
 
                 AddProduct(new Product(name, price, category));
             }
+            Console.WriteLine("Shopping cart is now full.\n");
         }
 
         public ProductCategory DetermineCategory(int decision)
@@ -163,12 +174,14 @@ namespace ShoppingCartApp
             }
             else
             {
-                Console.WriteLine("Shopping cart is full.");
+                Console.WriteLine("Shopping cart is full.\n");
             }
         }
 
-        public Product SearchProduct(string searchName)
+        public Product SearchProduct()
         {
+            Console.Write("Please enter the name of the product you want to remove: ");
+            string searchName = Console.ReadLine();
             foreach (Product product in products)
             {
                 if (product != null && product.Name.ToLower() == searchName.ToLower())
@@ -193,7 +206,7 @@ namespace ShoppingCartApp
 
             if (indexToRemove == -1)
             {
-                Console.WriteLine("Product not found in shopping cart.");
+                Console.WriteLine("Product not found in shopping cart.\n");
                 return;
             }
 
@@ -213,6 +226,7 @@ namespace ShoppingCartApp
             // Replace the shopping cart array with the temporary array
             products = tempArray;
             itemCount--;
+            Console.WriteLine("Product successfully deleted.\n");
         }
 
 
@@ -222,20 +236,8 @@ namespace ShoppingCartApp
             Console.WriteLine("PRODUCTS:");
             for (int i = 0; i < products.Length; i++)
             {
-                if (products[i].Category == ProductCategory.Clothing)
-                {
-
-                }
-                else if (products[i].Category == ProductCategory.Electronics)
-                {
-
-                }
-                else
-                {
-                    products[i].GetInfo();
-                    Console.WriteLine();
-                }
-
+                products[i].GetInfo();
+                Console.WriteLine();
             }
         }
     }
